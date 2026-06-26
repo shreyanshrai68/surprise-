@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Riyona ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:#050510;color:#fff;overflow-x:hidden;overflow-y:auto;min-height:100vh}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at top,#4b0082,#050510 60%)}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+.center{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px 20px 60px}
+h1{font-size:3rem;text-shadow:0 0 20px #ff4da6}
+p{max-width:700px;margin:20px;font-size:1.2rem}
+button{padding:12px 20px;border:none;border-radius:30px;background:#ff4da6;color:#fff;font-size:1rem;cursor:pointer;box-shadow:0 0 20px #ff4da6;margin:6px}
+#msg{display:none;margin-top:25px;font-size:1.3rem;color:#ffd1e8}
+.heart{position:absolute;color:#ff4da6;animation:fall linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(30deg);opacity:0}}
+.controls{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.typewriter{font-family:Georgia,serif;font-size:1.2rem;color:#ffe6f2;min-height:1.4em}
+.canvas-confetti{position:fixed;inset:0;pointer-events:none}
+.feature-panel{width:min(860px,100%);margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.feature-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:16px;backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+.feature-card h3{font-size:1rem;margin-bottom:10px;color:#ffd1e8}
+textarea{width:100%;min-height:80px;border:none;border-radius:12px;padding:10px;background:rgba(255,255,255,0.95);color:#1f1030;resize:vertical}
+.feature-actions{display:flex;gap:8px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+.feature-card button{margin:0}
+.memory-list{margin-top:10px;display:flex;flex-direction:column;gap:8px;max-height:180px;overflow:auto}
+.memory-item{background:rgba(255,255,255,0.12);border-radius:12px;padding:8px 10px;font-size:0.95rem;color:#ffe6f2;text-align:left}
+.quote-card{min-height:64px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff7fb;line-height:1.4}
+.counter{font-size:1rem;color:#ffe6f2}
+.theme-light{background:linear-gradient(120deg,#fff0f8,#ffe6f0);color:#111}
+.theme-light .feature-card{background:rgba(255,255,255,0.72);border-color:rgba(0,0,0,0.08);color:#111}
+.theme-light textarea{background:#fff;color:#111}
+.hidden{display:none}
+@media (max-width:800px){.feature-panel{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="center">
+<h1>For Riyona ❤️</h1>
+<p>Every heartbeat reminds me of you. This is just the beginning of a website made specially for you.</p>
+<div class="controls">
+	<button id="openBtn">Open My Heart 💖</button>
+	<button id="musicBtn">Toggle Ambient</button>
+	<button id="themeBtn">Toggle Theme</button>
+	<button id="shareBtn">Share</button>
+</div>
+<div class="feature-panel">
+	<div class="feature-card">
+		<h3>Leave a little memory</h3>
+		<textarea id="memoryInput" maxlength="120" placeholder="Write something sweet..."></textarea>
+		<div class="feature-actions">
+			<button id="saveMemoryBtn">Save Memory</button>
+			<button id="clearMemoryBtn">Clear</button>
+		</div>
+		<div id="memoryList" class="memory-list"></div>
+	</div>
+	<div class="feature-card">
+		<h3>Love Spark</h3>
+		<button id="quoteBtn">Reveal a Sweet Message</button>
+		<div id="quoteCard" class="quote-card">Loading your little spark…</div>
+	</div>
+	<div class="feature-card">
+		<h3>Heartbeats</h3>
+		<div id="visitCount" class="counter">Visits: 1</div>
+	</div>
+</div>
+<div id="msg" class="hidden">
+<h2>I Like You, Riyona 🌹</h2>
+<div class="typewriter" id="tw"></div>
+<p>One day this page will be filled with our memories.</p>
+</div>
+<canvas id="confetti" class="canvas-confetti"></canvas>
+</div>
+<script>
+for(let i=0;i<180;i++){
+ let s=document.createElement('div');
+ s.className='star';
+ s.style.left=Math.random()*100+'vw';
+ s.style.top=Math.random()*100+'vh';
+ s.style.animationDelay=Math.random()*2+'s';
+ document.body.appendChild(s);
+}
+function hearts(){
+ let h=document.createElement('div');
+ h.className='heart';
+ h.innerHTML='❤';
+ h.style.left=Math.random()*100+'vw';
+ h.style.top='-20px';
+ h.style.fontSize=(16+Math.random()*24)+'px';
+ h.style.animationDuration=(3+Math.random()*4)+'s';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),7000);
+}
+let heartTimer = setInterval(hearts,250);
+
+function burstHearts(x,y){
+ for(let i=0;i<10;i++){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.innerHTML='❤';
+  h.style.left=(x+(Math.random()-0.5)*80)+'px';
+  h.style.top=(y+(Math.random()-0.5)*80)+'px';
+  h.style.fontSize=(14+Math.random()*20)+'px';
+  h.style.animationDuration=(2.5+Math.random()*2)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+ }
+}
+
+// Simple ambient synth using WebAudio
+let audioCtx, osc, gainNode; let ambientOn=false;
+function toggleAmbient(){
+	if(!audioCtx){audioCtx=new (window.AudioContext||window.webkitAudioContext)();gainNode=audioCtx.createGain();gainNode.gain.value=0.02;gainNode.connect(audioCtx.destination);osc=audioCtx.createOscillator();osc.type='sine';osc.frequency.value=220;osc.connect(gainNode);osc.start();ambientOn=true;return}
+	if(ambientOn){gainNode.gain.exponentialRampToValueAtTime(0.0001,audioCtx.currentTime+1);ambientOn=false}else{gainNode.gain.exponentialRampToValueAtTime(0.02,audioCtx.currentTime+1);ambientOn=true}
+}
+
+// Confetti canvas
+const confettiCanvas=document.getElementById('confetti');const ctx=confettiCanvas.getContext('2d');function resize(){confettiCanvas.width=innerWidth;confettiCanvas.height=innerHeight}resize();window.addEventListener('resize',resize);
+let confettiParticles=[];
+function emitConfetti(x,y){for(let i=0;i<80;i++){confettiParticles.push({x,y,vx:(Math.random()-0.5)*8,vy:(Math.random()-2)*6,color:['#ff4da6','#ffd1e8','#fff5fb'][Math.floor(Math.random()*3)],size:2+Math.random()*4,life:60+Math.random()*40})}}
+function renderConfetti(){ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);for(let p of confettiParticles){p.x+=p.vx;p.y+=p.vy;p.vy+=0.15;p.life--;ctx.fillStyle=p.color;ctx.fillRect(p.x,p.y,p.size, p.size)}confettiParticles=confettiParticles.filter(p=>p.life>0);requestAnimationFrame(renderConfetti)}renderConfetti();
+
+// Typewriter
+function typewriter(el,text,delay=40){let i=0;el.textContent='';let t=setInterval(()=>{el.textContent+=text.charAt(i);i++;if(i>=text.length)clearInterval(t)},delay)}
+
+function showLove(){
+	const msg=document.getElementById('msg');msg.classList.remove('hidden');document.getElementById('openBtn').disabled=true;
+	emitConfetti(innerWidth/2,innerHeight/3);
+	burstHearts(innerWidth/2, innerHeight/3);
+	typewriter(document.getElementById('tw'),'You make every day brighter. I treasure you.');
+}
+
+// Memory notes and sweet messages
+const memoryInput=document.getElementById('memoryInput');
+const memoryList=document.getElementById('memoryList');
+const saveMemoryBtn=document.getElementById('saveMemoryBtn');
+const clearMemoryBtn=document.getElementById('clearMemoryBtn');
+const quoteBtn=document.getElementById('quoteBtn');
+const quoteCard=document.getElementById('quoteCard');
+const visitCount=document.getElementById('visitCount');
+const memories=JSON.parse(localStorage.getItem('riyonaMemories')||'[]');
+const loveQuotes=[
+	'You are the softest light in my day.',
+	'Every little moment with you feels magical.',
+	'Your smile makes the whole world feel warmer.',
+	'You are my favorite kind of forever.',
+	'Even the quietest moments feel beautiful with you in mind.'
+];
+function renderMemories(){
+	memoryList.innerHTML='';
+	if(!memories.length){memoryList.innerHTML='<div class="memory-item">No memories yet. Add one for your little love archive ✨</div>';return}
+	memories.slice().reverse().forEach((text)=>{
+		const item=document.createElement('div');
+		item.className='memory-item';
+		item.textContent=text;
+		memoryList.appendChild(item);
+	});
+}
+function saveMemory(){
+	const value=memoryInput.value.trim();
+	if(!value)return;
+	memories.push(value);
+	if(memories.length>8) memories.shift();
+	localStorage.setItem('riyonaMemories', JSON.stringify(memories));
+	memoryInput.value='';
+	renderMemories();
+}
+function showRandomQuote(){
+	const quote=loveQuotes[Math.floor(Math.random()*loveQuotes.length)];
+	quoteCard.textContent=quote;
+}
+
+saveMemoryBtn.addEventListener('click',saveMemory);
+clearMemoryBtn.addEventListener('click',()=>{
+	memories.length=0;
+	localStorage.removeItem('riyonaMemories');
+	renderMemories();
+});
+memoryInput.addEventListener('keydown',(e)=>{if(e.key==='Enter' && (e.ctrlKey||e.metaKey)){e.preventDefault();saveMemory();}});
+quoteBtn.addEventListener('click',()=>{showRandomQuote();burstHearts(innerWidth/2, innerHeight/3);});
+
+let visits=Number(localStorage.getItem('riyonaVisits')||0)+1;
+localStorage.setItem('riyonaVisits', visits);
+visitCount.textContent=`Visits: ${visits}`;
+renderMemories();
+showRandomQuote();
+
+// UI bindings
+document.getElementById('openBtn').addEventListener('click',showLove);
+document.getElementById('musicBtn').addEventListener('click',()=>{toggleAmbient();document.getElementById('musicBtn').textContent=ambientOn? 'Stop Ambient':'Toggle Ambient'});
+document.getElementById('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('theme-light')});
+document.getElementById('shareBtn').addEventListener('click',async()=>{
+	if(navigator.share){try{await navigator.share({title:'For Riyona',text:'A little page for you ❤️',url:location.href})}catch(e){}}
+	else{alert('Share not supported on this device.')}
+});
+document.addEventListener('click',(e)=>{
+	if(e.target.closest('button,textarea,input,select')) return;
+	burstHearts(e.clientX,e.clientY);
+});
+
+</script>
+</body></html>
