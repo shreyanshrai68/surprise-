@@ -1,205 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>For Riyona ❤️</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:#050510;color:#fff;overflow-x:hidden;overflow-y:auto;min-height:100vh}
-.bg{position:fixed;inset:0;background:radial-gradient(circle at top,#4b0082,#050510 60%)}
-.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 2s infinite alternate}
-@keyframes twinkle{from{opacity:.2}to{opacity:1}}
-.center{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px 20px 60px}
-h1{font-size:3rem;text-shadow:0 0 20px #ff4da6}
-p{max-width:700px;margin:20px;font-size:1.2rem}
-button{padding:12px 20px;border:none;border-radius:30px;background:#ff4da6;color:#fff;font-size:1rem;cursor:pointer;box-shadow:0 0 20px #ff4da6;margin:6px}
-#msg{display:none;margin-top:25px;font-size:1.3rem;color:#ffd1e8}
-.heart{position:absolute;color:#ff4da6;animation:fall linear forwards;pointer-events:none}
-@keyframes fall{to{transform:translateY(110vh) rotate(30deg);opacity:0}}
-.controls{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.typewriter{font-family:Georgia,serif;font-size:1.2rem;color:#ffe6f2;min-height:1.4em}
-.canvas-confetti{position:fixed;inset:0;pointer-events:none}
-.feature-panel{width:min(860px,100%);margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.feature-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:16px;backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
-.feature-card h3{font-size:1rem;margin-bottom:10px;color:#ffd1e8}
-textarea{width:100%;min-height:80px;border:none;border-radius:12px;padding:10px;background:rgba(255,255,255,0.95);color:#1f1030;resize:vertical}
-.feature-actions{display:flex;gap:8px;justify-content:center;margin-top:8px;flex-wrap:wrap}
-.feature-card button{margin:0}
-.memory-list{margin-top:10px;display:flex;flex-direction:column;gap:8px;max-height:180px;overflow:auto}
-.memory-item{background:rgba(255,255,255,0.12);border-radius:12px;padding:8px 10px;font-size:0.95rem;color:#ffe6f2;text-align:left}
-.quote-card{min-height:64px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff7fb;line-height:1.4}
-.counter{font-size:1rem;color:#ffe6f2}
-.theme-light{background:linear-gradient(120deg,#fff0f8,#ffe6f0);color:#111}
-.theme-light .feature-card{background:rgba(255,255,255,0.72);border-color:rgba(0,0,0,0.08);color:#111}
-.theme-light textarea{background:#fff;color:#111}
-.hidden{display:none}
-@media (max-width:800px){.feature-panel{grid-template-columns:1fr}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love! 🎂❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: radial-gradient(circle at top right, #ffe5ec, #ffc2d1, #ffb3c6);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            padding: 40px 20px;
+        }
+        
+        /* Grand Main Layout */
+        .main-wrapper {
+            max-width: 850px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            padding: 50px 40px;
+            box-shadow: 0 25px 60px rgba(255, 74, 121, 0.2);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #c9184a;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #590d22;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        /* --- Section 1: The Interactive Cake --- */
+        .cake-section {
+            margin-bottom: 60px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .cake {
+            position: relative;
+            width: 180px;
+            height: 120px;
+            background: #f1c40f;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 8px 0 #d4ac0d, inset 0 10px 0 #fff;
+            margin-top: 50px;
+            transition: all 0.5s ease;
+        }
+        .cake::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 180px;
+            height: 20px;
+            background: #e74c3c;
+            box-shadow: 0 6px 0 #c0392b;
+        }
+        .cake::after {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 180px;
+            height: 20px;
+            background: #2ecc71;
+            box-shadow: 0 6px 0 #27ae60;
+        }
+        
+        /* Candle & Flame */
+        .candle {
+            position: absolute;
+            top: -35px;
+            left: 82px;
+            width: 16px;
+            height: 35px;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            border-radius: 4px 4px 0 0;
+        }
+        .flame {
+            position: absolute;
+            top: -20px;
+            left: 3px;
+            width: 10px;
+            height: 20px;
+            background: #e67e22;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: moveFlame 0.5s infinite alternate;
+            box-shadow: 0 0 15px #f39c12;
+            cursor: pointer;
+        }
+        
+        @keyframes moveFlame {
+            0% { transform: skewX(-5deg) scale(1); }
+            100% { transform: skewX(5deg) scale(1.1); }
+        }
+
+        .cake-btn {
+            margin-top: 30px;
+            background: #23a6d5;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(35, 166, 213, 0.3);
+            transition: 0.3s;
+        }
+        .cake-btn:hover { background: #157ea3; }
+
+        /* --- Section 2: The Original Surprises Box --- */
+        .surprise-section {
+            border-top: 2px dashed rgba(201, 24, 74, 0.3);
+            padding-top: 50px;
+            width: 100%;
+        }
+
+        .surprise-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .surprise-box {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #fff5f7;
+            border-left: 6px solid #ff4081;
+            animation: slideDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .surprise-box p {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Grand Button */
+        .heart-btn {
+            background: linear-gradient(45deg, #ff4081, #ec407a);
+            color: white;
+            border: none;
+            padding: 18px 36px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.4);
+            transition: all 0.3s ease;
+            outline: none;
+            margin-top: 15px;
+        }
+        .heart-btn:hover {
+            background: linear-gradient(45deg, #f50057, #d81b60);
+            transform: scale(1.05);
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            animation: floatUp 3.5s linear forwards;
+            opacity: 0;
+            bottom: -20px;
+            z-index: 999;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2.3rem; }
+            .main-wrapper { padding: 30px 20px; }
+        }
+    </style>
 </head>
 <body>
-<div class="bg"></div>
-<div class="center">
-<h1>For Riyona ❤️</h1>
-<p>Every heartbeat reminds me of you. This is just the beginning of a website made specially for you.</p>
-<div class="controls">
-	<button id="openBtn">Open My Heart 💖</button>
-	<button id="musicBtn">Toggle Ambient</button>
-	<button id="themeBtn">Toggle Theme</button>
-	<button id="shareBtn">Share</button>
-</div>
-<div class="feature-panel">
-	<div class="feature-card">
-		<h3>Leave a little memory</h3>
-		<textarea id="memoryInput" maxlength="120" placeholder="Write something sweet..."></textarea>
-		<div class="feature-actions">
-			<button id="saveMemoryBtn">Save Memory</button>
-			<button id="clearMemoryBtn">Clear</button>
-		</div>
-		<div id="memoryList" class="memory-list"></div>
-	</div>
-	<div class="feature-card">
-		<h3>Love Spark</h3>
-		<button id="quoteBtn">Reveal a Sweet Message</button>
-		<div id="quoteCard" class="quote-card">Loading your little spark…</div>
-	</div>
-	<div class="feature-card">
-		<h3>Heartbeats</h3>
-		<div id="visitCount" class="counter">Visits: 1</div>
-	</div>
-</div>
-<div id="msg" class="hidden">
-<h2>I Like You, Riyona 🌹</h2>
-<div class="typewriter" id="tw"></div>
-<p>One day this page will be filled with our memories.</p>
-</div>
-<canvas id="confetti" class="canvas-confetti"></canvas>
-</div>
-<script>
-for(let i=0;i<180;i++){
- let s=document.createElement('div');
- s.className='star';
- s.style.left=Math.random()*100+'vw';
- s.style.top=Math.random()*100+'vh';
- s.style.animationDelay=Math.random()*2+'s';
- document.body.appendChild(s);
-}
-function hearts(){
- let h=document.createElement('div');
- h.className='heart';
- h.innerHTML='❤';
- h.style.left=Math.random()*100+'vw';
- h.style.top='-20px';
- h.style.fontSize=(16+Math.random()*24)+'px';
- h.style.animationDuration=(3+Math.random()*4)+'s';
- document.body.appendChild(h);
- setTimeout(()=>h.remove(),7000);
-}
-let heartTimer = setInterval(hearts,250);
 
-function burstHearts(x,y){
- for(let i=0;i<10;i++){
-  const h=document.createElement('div');
-  h.className='heart';
-  h.innerHTML='❤';
-  h.style.left=(x+(Math.random()-0.5)*80)+'px';
-  h.style.top=(y+(Math.random()-0.5)*80)+'px';
-  h.style.fontSize=(14+Math.random()*20)+'px';
-  h.style.animationDuration=(2.5+Math.random()*2)+'s';
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),5000);
- }
-}
+    <div class="main-wrapper">
+        <h1>Happy Birthday, My Queen! 👑</h1>
+        <div class="subtitle">Welcome to Your Grand Birthday Dashboard</div>
 
-// Simple ambient synth using WebAudio
-let audioCtx, osc, gainNode; let ambientOn=false;
-function toggleAmbient(){
-	if(!audioCtx){audioCtx=new (window.AudioContext||window.webkitAudioContext)();gainNode=audioCtx.createGain();gainNode.gain.value=0.02;gainNode.connect(audioCtx.destination);osc=audioCtx.createOscillator();osc.type='sine';osc.frequency.value=220;osc.connect(gainNode);osc.start();ambientOn=true;return}
-	if(ambientOn){gainNode.gain.exponentialRampToValueAtTime(0.0001,audioCtx.currentTime+1);ambientOn=false}else{gainNode.gain.exponentialRampToValueAtTime(0.02,audioCtx.currentTime+1);ambientOn=true}
-}
+        <!-- 🎂 CAKE SECTION -->
+        <div class="cake-section">
+            <h2 style="color: #a4133c; font-family: 'Playfair Display', serif; margin-bottom: 10px;">Make a Wish & Blow the Candle!</h2>
+            
+            <div class="cake" id="birthday-cake">
+                <div class="candle" id="candle">
+                    <div class="flame" id="flame" onclick="blowCandle()"></div>
+                </div>
+            </div>
+            
+            <button class="cake-btn" id="cake-status-btn" onclick="blowCandle()">Blow Candle 🕯️</button>
+        </div>
 
-// Confetti canvas
-const confettiCanvas=document.getElementById('confetti');const ctx=confettiCanvas.getContext('2d');function resize(){confettiCanvas.width=innerWidth;confettiCanvas.height=innerHeight}resize();window.addEventListener('resize',resize);
-let confettiParticles=[];
-function emitConfetti(x,y){for(let i=0;i<80;i++){confettiParticles.push({x,y,vx:(Math.random()-0.5)*8,vy:(Math.random()-2)*6,color:['#ff4da6','#ffd1e8','#fff5fb'][Math.floor(Math.random()*3)],size:2+Math.random()*4,life:60+Math.random()*40})}}
-function renderConfetti(){ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);for(let p of confettiParticles){p.x+=p.vx;p.y+=p.vy;p.vy+=0.15;p.life--;ctx.fillStyle=p.color;ctx.fillRect(p.x,p.y,p.size, p.size)}confettiParticles=confettiParticles.filter(p=>p.life>0);requestAnimationFrame(renderConfetti)}renderConfetti();
+        <!-- 🎁 SURPRISES SECTION (All 5 original surprises brought back together) -->
+        <div class="surprise-section">
+            <div class="surprise-container">
+                <h2 id="main-heading" style="color: #d81b60; margin-bottom: 15px;">Your Surprises Box ✨</h2>
+                <p id="sub-text">Click the premium button below to step into a journey made of 5 beautiful hidden notes just for you...</p>
+                
+                <button class="heart-btn" id="action-btn" onclick="nextSurprise()">Unlock Surprise! ❤️</button>
 
-// Typewriter
-function typewriter(el,text,delay=40){let i=0;el.textContent='';let t=setInterval(()=>{el.textContent+=text.charAt(i);i++;if(i>=text.length)clearInterval(t)},delay)}
+                <div class="surprise-box" id="surprise-text">
+                    <!-- Dynamic Messages load here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-function showLove(){
-	const msg=document.getElementById('msg');msg.classList.remove('hidden');document.getElementById('openBtn').disabled=true;
-	emitConfetti(innerWidth/2,innerHeight/3);
-	burstHearts(innerWidth/2, innerHeight/3);
-	typewriter(document.getElementById('tw'),'You make every day brighter. I treasure you.');
-}
+    <script>
+        // 🎂 Cake Logic
+        let candleLit = true;
+        function blowCandle() {
+            const flame = document.getElementById('flame');
+            const btn = document.getElementById('cake-status-btn');
+            const cake = document.getElementById('birthday-cake');
+            
+            if (candleLit) {
+                flame.style.display = 'none';
+                btn.innerText = "Cake Successfully Cut! 🍰";
+                btn.style.background = '#2ecc71';
+                candleLit = false;
+                // Burst effects on blowing candle
+                triggerGrandEffects(['🎉', '🎂', '✨', '🎈', '🥳']);
+            } else {
+                flame.style.display = 'block';
+                btn.innerText = "Blow Candle 🕯️";
+                btn.style.background = '#23a6d5';
+                candleLit = true;
+            }
+        }
 
-// Memory notes and sweet messages
-const memoryInput=document.getElementById('memoryInput');
-const memoryList=document.getElementById('memoryList');
-const saveMemoryBtn=document.getElementById('saveMemoryBtn');
-const clearMemoryBtn=document.getElementById('clearMemoryBtn');
-const quoteBtn=document.getElementById('quoteBtn');
-const quoteCard=document.getElementById('quoteCard');
-const visitCount=document.getElementById('visitCount');
-const memories=JSON.parse(localStorage.getItem('riyonaMemories')||'[]');
-const loveQuotes=[
-	'You are the softest light in my day.',
-	'Every little moment with you feels magical.',
-	'Your smile makes the whole world feel warmer.',
-	'You are my favorite kind of forever.',
-	'Even the quietest moments feel beautiful with you in mind.'
-];
-function renderMemories(){
-	memoryList.innerHTML='';
-	if(!memories.length){memoryList.innerHTML='<div class="memory-item">No memories yet. Add one for your little love archive ✨</div>';return}
-	memories.slice().reverse().forEach((text)=>{
-		const item=document.createElement('div');
-		item.className='memory-item';
-		item.textContent=text;
-		memoryList.appendChild(item);
-	});
-}
-function saveMemory(){
-	const value=memoryInput.value.trim();
-	if(!value)return;
-	memories.push(value);
-	if(memories.length>8) memories.shift();
-	localStorage.setItem('riyonaMemories', JSON.stringify(memories));
-	memoryInput.value='';
-	renderMemories();
-}
-function showRandomQuote(){
-	const quote=loveQuotes[Math.floor(Math.random()*loveQuotes.length)];
-	quoteCard.textContent=quote;
-}
+        // 🎁 Surprises Logic (All 5 Original Premium Surprises)
+        let stage = 0;
+        const surprises = [
+            {
+                heading: "Surprise #1: The Reality Check 💖",
+                text: "Ever since you walked into my life, everything became ten times brighter. You have the most magical smile, and it's officially my absolute favorite thing in the universe!",
+                btnText: "Keep Going! 👉"
+            },
+            {
+                heading: "Surprise #2: A Pinky Promise 🤝",
+                text: "I promise to stand by you through every single laugh, every silly argument, and all the crazy adventures. (And yes, I promise to let you win most of the arguments! 😉)",
+                btnText: "Click For More! 🌟"
+            },
+            {
+                heading: "Surprise #3: The Mood Lifter 🍦",
+                text: "No matter how tough a day gets, just one text or call from you completely resets my mood. You are literally my human version of hot chocolate on a cold day!",
+                btnText: "Next Secret! 🔑"
+            },
+            {
+                heading: "Surprise #4: Total Monopoly 👑",
+                text: "Today you have 100% free passes! You can demand your favorite food, make me watch any movie you want, and I will gladly be your personal assistant for the day!",
+                btnText: "The Final Surprise! 🎁"
+            },
+            {
+                heading: "🎉 HAPPY BIRTHDAY, MY LOVE! 🎉",
+                text: "May this year bring you endless happiness, laughter, and all the success you deserve. Thank you for being your amazing self. Let's make today unforgettable! 🎂🎈✨",
+                btnText: "Start Over! 🔄"
+            }
+        ];
 
-saveMemoryBtn.addEventListener('click',saveMemory);
-clearMemoryBtn.addEventListener('click',()=>{
-	memories.length=0;
-	localStorage.removeItem('riyonaMemories');
-	renderMemories();
-});
-memoryInput.addEventListener('keydown',(e)=>{if(e.key==='Enter' && (e.ctrlKey||e.metaKey)){e.preventDefault();saveMemory();}});
-quoteBtn.addEventListener('click',()=>{showRandomQuote();burstHearts(innerWidth/2, innerHeight/3);});
+        function nextSurprise() {
+            const box = document.getElementById('surprise-text');
+            const heading = document.getElementById('main-heading');
+            const subText = document.getElementById('sub-text');
+            const btn = document.getElementById('action-btn');
 
-let visits=Number(localStorage.getItem('riyonaVisits')||0)+1;
-localStorage.setItem('riyonaVisits', visits);
-visitCount.textContent=`Visits: ${visits}`;
-renderMemories();
-showRandomQuote();
+            subText.style.display = 'none';
+            
+            if (stage < surprises.length) {
+                box.style.display = 'block';
+                heading.innerText = surprises[stage].heading;
+                box.innerHTML = `<p>${surprises[stage].text}</p>`;
+                btn.innerText = surprises[stage].btnText;
+                
+                // Burst elegant particles on every single next click
+                triggerGrandEffects(['❤️', '💖', '✨', '🎉', '🌸']);
+                stage++;
+            } else {
+                stage = 0;
+                heading.innerText = "Your Surprises Box ✨";
+                subText.style.display = 'block';
+                box.style.display = 'none';
+                btn.innerText = "Unlock Surprise! ❤️";
+            }
+        }
 
-// UI bindings
-document.getElementById('openBtn').addEventListener('click',showLove);
-document.getElementById('musicBtn').addEventListener('click',()=>{toggleAmbient();document.getElementById('musicBtn').textContent=ambientOn? 'Stop Ambient':'Toggle Ambient'});
-document.getElementById('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('theme-light')});
-document.getElementById('shareBtn').addEventListener('click',async()=>{
-	if(navigator.share){try{await navigator.share({title:'For Riyona',text:'A little page for you ❤️',url:location.href})}catch(e){}}
-	else{alert('Share not supported on this device.')}
-});
-document.addEventListener('click',(e)=>{
-	if(e.target.closest('button,textarea,input,select')) return;
-	burstHearts(e.clientX,e.clientY);
-});
+        // Particle System
+        function triggerGrandEffects(emojis) {
+            for (let i = 0; i < 25; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDuration = (Math.random() * 1.5 + 2) + 's'; 
+                particle.style.fontSize = (Math.random() * 25 + 15) + 'px'; 
+                
+                document.body.appendChild(particle);
 
-</script>
-</body></html>
+                setTimeout(() => {
+                    particle.remove();
+                }, 3500);
+            }
+        }
+    </script>
+</body>
+</html>
